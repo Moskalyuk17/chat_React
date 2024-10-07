@@ -1,5 +1,7 @@
+@use "../abstracts" as *;
+
 .aside {
-    background-color: #171717;
+    background-color: $cynicalBlack;
     float: left;
     width: 20%;
     height: 100vh;

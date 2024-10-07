@@ -1,9 +1,11 @@
+@use "../abstracts" as *;
+
 .account {
     float: right;
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: gray;
+    background: $gray;
 }
     
 .open_sidebar {
