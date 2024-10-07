@@ -1,0 +1,44 @@
+.aside {
+    background-color: #171717;
+    float: left;
+    width: 20%;
+    height: 100vh;
+    overflow-y: auto;
+
+    .header_aside {
+        display: flex;
+        justify-content: space-between;
+
+        .new_chat, 
+        .close_sidebar {
+            background: none;
+            border: none;
+            width: 25%;
+
+            img {
+                width: 50%;
+            }
+        }
+
+        .open_sidebar {
+            background: none;
+            border: none;
+
+            img {
+                width: 120%;
+            }
+        }
+
+        .new_chat:hover,
+        .close_sidebar:hover, 
+        .open_sidebar:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+
+
+
+
+
