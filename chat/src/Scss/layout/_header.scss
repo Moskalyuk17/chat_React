@@ -1,0 +1,20 @@
+.account {
+    float: right;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: gray;
+}
+    
+.open_sidebar {
+    background: none;
+    border: none;
+
+    img {
+        width: 130%;
+    }
+}
+
+.open_sidebar:hover {
+    transform: scale(1.1);
+}

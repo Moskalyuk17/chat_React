@@ -1,0 +1,59 @@
+.main {
+    display: flex;
+    justify-content: center;
+
+    .out_sms {
+        display: flex;
+        justify-content: end;
+        height: 80vh;
+        overflow: hidden auto;
+        width: 100%;
+
+        .out {
+            position: relative;
+            max-width: 50%;
+            border: none;
+            word-break: break-all;
+        }
+    }
+
+    .scrollable::-webkit-scrollbar {
+        background: none;
+        width: 8px;
+    }
+    
+    .scrollable::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #2F2F2F;
+    }
+
+    .form_text {
+        position: relative;
+        vertical-align: top;
+        width: 70vw;
+
+        .form-control {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border-radius: 50px;
+            border: none;
+            padding: 16px;
+            background-color: #2F2F2F;
+            color: #fff;
+        }
+          
+        .message_input {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: .4em;
+            right: .4em;
+            border-radius: 50%;
+            border: none;
+            text-transform: uppercase;
+            background: #676767;
+            padding: 6px;
+        }
+    }
+}

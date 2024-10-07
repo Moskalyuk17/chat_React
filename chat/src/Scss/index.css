@@ -4,6 +4,27 @@
   box-sizing: border-box;
 }
 
+.account {
+  float: right;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: gray;
+}
+
+.open_sidebar {
+  background: none;
+  border: none;
+}
+
+.open_sidebar img {
+  width: 130%;
+}
+
+.open_sidebar:hover {
+  transform: scale(1.1);
+}
+
 .aside {
   background-color: #171717;
   float: left;
@@ -29,19 +50,69 @@
   width: 50%;
 }
 
-.aside .header_aside .open_sidebar {
-  background: none;
-  border: none;
-}
-
-.aside .header_aside .open_sidebar img {
-  width: 120%;
-}
-
 .aside .header_aside .new_chat:hover,
-.aside .header_aside .close_sidebar:hover,
-.aside .header_aside .open_sidebar:hover {
+.aside .header_aside .close_sidebar:hover {
   transform: scale(1.1);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.main .out_sms {
+  display: flex;
+  justify-content: end;
+  height: 80vh;
+  overflow: hidden auto;
+  width: 100%;
+}
+
+.main .out_sms .out {
+  position: relative;
+  max-width: 50%;
+  border: none;
+  word-break: break-all;
+}
+
+.main .scrollable::-webkit-scrollbar {
+  background: none;
+  width: 8px;
+}
+
+.main .scrollable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #2F2F2F;
+}
+
+.main .form_text {
+  position: relative;
+  vertical-align: top;
+  width: 70vw;
+}
+
+.main .form_text .form-control {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  padding: 16px;
+  background-color: #2F2F2F;
+  color: #fff;
+}
+
+.main .form_text .message_input {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0.4em;
+  right: 0.4em;
+  border-radius: 50%;
+  border: none;
+  text-transform: uppercase;
+  background: #676767;
+  padding: 6px;
 }
 
 .container {

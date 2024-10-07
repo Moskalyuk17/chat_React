@@ -20,18 +20,8 @@
             }
         }
 
-        .open_sidebar {
-            background: none;
-            border: none;
-
-            img {
-                width: 120%;
-            }
-        }
-
         .new_chat:hover,
-        .close_sidebar:hover, 
-        .open_sidebar:hover {
+        .close_sidebar:hover {
             transform: scale(1.1);
         }
     }
