@@ -27,6 +27,34 @@
             transform: scale(1.1);
         }
     }
+
+    .li {
+        float: left;
+        width: 100%;
+        margin: 5px;
+        color: #fff;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-radius: 8px;
+        align-items: center;
+        padding: 10px;
+
+        :nth-last-child(1) {
+            float: right;
+        }
+
+        &:hover{
+            background: $darkCharcoal;
+        }
+
+        .moreInfoButton{
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+    }
 }
 
 
