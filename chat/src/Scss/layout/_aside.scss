@@ -22,6 +22,7 @@
             }
         }
 
+
         .new_chat:hover,
         .close_sidebar:hover {
             transform: scale(1.1);
@@ -40,14 +41,34 @@
         border-radius: 8px;
         align-items: center;
         padding: 10px;
+        background: $darkCharcoal;
 
         :nth-last-child(1) {
             float: right;
         }
 
-        &:hover{
-            background: $darkCharcoal;
+        &:hover {
+            transform: scale(1.02);
         }
+
+        .nameAssistante {
+            width: 88%;
+            overflow: hidden;
+            position: relative;
+
+            &:after {
+                content: "";
+                text-align: right;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 16%;
+                height: 1.2em;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0), $darkCharcoal 100%);
+                pointer-events: none;
+            }
+        }
+
 
         .moreInfoButton{
             border: none;

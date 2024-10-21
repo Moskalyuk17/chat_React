@@ -1,3 +1,6 @@
+@use "../abstracts" as *;
+
+
 .modalBackground {
     display: none;
     background: rgba(0, 0, 0, 0.8);
@@ -6,74 +9,98 @@
     height: 100%;
     cursor: pointer;
     z-index: 1;
+
+    .modalActive {
+        position: absolute;
+        width: 350px;
+        height: 495px;
+        top: calc(50% - 250px);
+        left: calc(50% - 175px);
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        cursor: default;
+        padding: 40px 20px;
+
+        .modalClose {
+            background: none;
+            border: none;
+            font-family: var(--font-regular);
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        
+        .modalClose img {
+            margin: 3px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .modalWindow {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin: 10px 0;
+        }
+
+        input {
+            background: $Mercury;
+            border: none;
+            padding: 6px;
+            margin: 0 10px;
+        }
+
+        .selected {
+            margin-top: 8px;
+            padding: 10px;
+            background: $Mercury;
+            cursor: pointer;
+            border: none;
+        }
+        
+        #Link {
+            color: #808080	;
+        }
+        
+        #version  {
+            display: none;
+            width: 100%;
+            z-index: 10;
+            margin-top: 10px;
+            li {
+                padding: 10px;
+                cursor: pointer;
+                list-style-type: none;
+            }
+        }
+    }
+     
+
+    .create {
+        border-radius: 6px;
+        margin-top: 20px;
+        padding: 6px;
+        background: $Gainsboro;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            transition: .6s;
+            transform: scale(1.06);
+        }
+    }
 }
 
-.modalActive {
-    position: absolute;
-    width: 350px;
-    height: 495px;
-    top: calc(50% - 250px);
-    left: calc(50% - 175px);
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    cursor: default;
-    padding: 40px 20px;
-}
 
-.modalClose {
-    background: none;
-    border: none;
-    font-family: var(--font-regular);
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
 
-.modalClose img {
-    margin: 3px;
-    width: 24px;
-    height: 24px;
-}
 
-.modalWindow {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
 
-.modalWindow label {
-    margin: 10px 0;
-}
 
-.modalWindow input {
-    background: #EBEBEB;
-    border: none;
-    padding: 6px;
-}
 
-.selected {
-    padding: 10px;
-    background: #EBEBEB;
-    cursor: pointer;
-    border: none;
-}
 
-#Link {
-    color: #808080	;
-}
-
-#version  {
-    display: none;
-    width: 100%;
-    z-index: 10;
-    margin-top: 10px;
-}
-
-#version li {
-    padding: 10px;
-    cursor: pointer;
-    list-style-type: none;
-}

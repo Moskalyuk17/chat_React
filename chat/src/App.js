@@ -4,14 +4,32 @@ import Aside from './Componets/Aside';
 import Main from './Componets/Main';
 import Header from './Componets/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <Aside /> 
-      <Header />
-      <Main />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAsideVisible: true,
+    };
+  }
+
+  closeAside = () => {
+    this.setState({ isAsideVisible: false });
+  };
+
+
+  openAside = () => {
+    this.setState({ isAsideVisible: true });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        {this.state.isAsideVisible && <Aside closeAside={this.closeAside} />}
+        <Header openAside={this.openAside} isAsideVisible={this.state.isAsideVisible} />
+        <Main />
+      </div>
+    );
+  }
 }
 
 export default App;

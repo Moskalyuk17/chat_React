@@ -67,6 +67,7 @@
   border-radius: 8px;
   align-items: center;
   padding: 10px;
+  background: #2F2F2F;
 }
 
 .aside .li :nth-last-child(1) {
@@ -74,7 +75,25 @@
 }
 
 .aside .li:hover {
-  background: #2F2F2F;
+  transform: scale(1.02);
+}
+
+.aside .li .nameAssistante {
+  width: 88%;
+  overflow: hidden;
+  position: relative;
+}
+
+.aside .li .nameAssistante:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16%;
+  height: 1.2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #2F2F2F 100%);
+  pointer-events: none;
 }
 
 .aside .li .moreInfoButton {
@@ -83,12 +102,24 @@
   cursor: pointer;
 }
 
+.container {
+  padding: 10px;
+}
+
+body {
+  background: #212121;
+}
+
 .main {
   display: flex;
   justify-content: center;
 }
 
-.main .out_sms {
+.main .container {
+  position: relative;
+}
+
+.main .container .out_sms {
   display: flex;
   justify-content: end;
   height: 80vh;
@@ -96,11 +127,28 @@
   width: 100%;
 }
 
-.main .out_sms .out {
+.main .container .out_sms .out {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   position: relative;
   max-width: 50%;
   border: none;
   word-break: break-all;
+}
+
+.main .container .out_sms .out p {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  margin: 4px;
+  background: #2F2F2F;
+  color: #fff;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .main .scrollable::-webkit-scrollbar {
@@ -153,7 +201,7 @@
   z-index: 1;
 }
 
-.modalActive {
+.modalBackground .modalActive {
   position: absolute;
   width: 350px;
   height: 495px;
@@ -165,7 +213,7 @@
   padding: 40px 20px;
 }
 
-.modalClose {
+.modalBackground .modalActive .modalClose {
   background: none;
   border: none;
   font-family: var(--font-regular);
@@ -177,50 +225,66 @@
   cursor: pointer;
 }
 
-.modalClose img {
+.modalBackground .modalActive .modalClose img {
   margin: 3px;
   width: 24px;
   height: 24px;
 }
 
-.modalWindow {
+.modalBackground .modalWindow {
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.modalWindow label {
+.modalBackground .modalWindow label {
   margin: 10px 0;
 }
 
-.modalWindow input {
+.modalBackground .modalWindow input {
   background: #EBEBEB;
   border: none;
   padding: 6px;
+  margin: 0 10px;
 }
 
-.selected {
+.modalBackground .modalWindow .selected {
+  margin-top: 8px;
   padding: 10px;
   background: #EBEBEB;
   cursor: pointer;
   border: none;
 }
 
-#Link {
+.modalBackground .modalWindow #Link {
   color: #808080;
 }
 
-#version {
+.modalBackground .modalWindow #version {
   display: none;
   width: 100%;
   z-index: 10;
   margin-top: 10px;
 }
 
-#version li {
+.modalBackground .modalWindow #version li {
   padding: 10px;
   cursor: pointer;
   list-style-type: none;
+}
+
+.modalBackground .create {
+  border-radius: 6px;
+  margin-top: 20px;
+  padding: 6px;
+  background: #e0e0e0;
+  border: none;
+  cursor: pointer;
+}
+
+.modalBackground .create:hover {
+  transition: 0.6s;
+  transform: scale(1.06);
 }
 
 .container {

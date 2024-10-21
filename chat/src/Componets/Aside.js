@@ -9,6 +9,7 @@ class Aside extends React.Component {
         super(props);
         this.state = {
             assistants: [],
+            isHeaderVisible: true,
         };
     }
 
@@ -17,10 +18,6 @@ class Aside extends React.Component {
             assistants: [...prevState.assistants, assistant],
         }));
     };
-
-    openMoreInfo = () => {
-
-    }
 
     render() {
         return (
@@ -31,14 +28,16 @@ class Aside extends React.Component {
                             <button
                                 className="new_chat"
                                 data="Добавить нового ассистента"
-                                onClick={() => document.getElementsByClassName("modalBackground")[0].style.display = "block"}
+                                onClick={() =>
+                                    document.getElementsByClassName("modalBackground")[0].style.display = "block"
+                                }
                             >
                                 <img src={newChat} alt="Новый чат" />
                             </button>
                             <button
                                 className="close_sidebar"
                                 data="Закрыть боковую панель"
-                                onClick={this.closeAside}
+                                onClick={this.props.closeAside}
                             >
                                 <img src={closeSidebar} alt="Закрыть боковую панель" />
                             </button>
@@ -46,7 +45,10 @@ class Aside extends React.Component {
                         <ul className="list_chat">
                             {this.state.assistants.map((assistant, index) => (
                                 <li key={index} className="li">
-                                    {assistant.name} <button className="moreInfoButton" onClick={this.openMoreInfo}><img src={moreInfo} alt="больше информации" /></button>
+                                    <span className="nameAssistante">{assistant.name}</span>
+                                    <button className="moreInfoButton" onClick={this.openMoreInfo}>
+                                        <img src={moreInfo} alt="больше информации" />
+                                    </button>
                                 </li>
                             ))}
                         </ul>

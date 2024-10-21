@@ -1,21 +1,42 @@
 @use "../abstracts" as *;
+@use "../utilities" as *; 
 
 .main {
     display: flex;
     justify-content: center;
 
-    .out_sms {
-        display: flex;
-        justify-content: end;
-        height: 80vh;
-        overflow: hidden auto;
-        width: 100%;
+    .container {
+        position: relative;
 
-        .out {
-            position: relative;
-            max-width: 50%;
-            border: none;
-            word-break: break-all;
+        .out_sms {
+            display: flex;
+            justify-content: end;
+            height: 80vh;
+            overflow: hidden auto;
+            width: 100%;
+    
+            .out {
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+                position: relative;
+                max-width: 50%;
+                border: none;
+                word-break: break-all;            
+
+                p {
+                    display: block;
+                    width: fit-content;
+                    max-width: 100%;
+                    padding: 16px;
+                    border-radius: 16px;
+                    margin: 4px;
+                    background: #2F2F2F;
+                    color: #fff;
+                    word-wrap: break-word;
+                    white-space: pre-wrap;
+                }
+            }
         }
     }
 

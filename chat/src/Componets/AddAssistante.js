@@ -1,10 +1,12 @@
 import React from "react";
+import CloseModalWindow from "../Assect/close_modal_window.svg"
 
 
 class AddAssistante extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: 1,
             name: "",
             link: "",
             version: "4o",
@@ -24,21 +26,31 @@ class AddAssistante extends React.Component {
 
     addAssistanteInSideBar = (event) => {
         event.preventDefault();
-        const { name, link, version } = this.state;
+        const {  name, link, version } = this.state;
 
-        // Передаем данные в родительский компонент
-        this.props.onAddAssistante({ name, link, version });
+        this.props.onAddAssistante({  name, link, version });
 
-        // Закрываем модальное окно
-        document.getElementsByClassName("modalBackground")[0].style.display = "none";
+        document.querySelector(".modalBackground").style.display = "none";
     };
+
+    modalCLose = () => {
+        document.querySelector(".modalBackground").style.display = "none";
+    }
+
+    modalBackgroundClose = (event) => {
+        const modalBackground = document.querySelector(".modalBackground");
+
+        if (event.target === modalBackground) {
+            modalBackground.style.display = "none";
+        }
+    }
 
     render() {
         return (
-            <div className="modalBackground">
+            <div className="modalBackground" onClick={this.modalBackgroundClose}>
                 <div className="modalActive">
-                    <button className="modalClose" data="Закрытия модального окна">
-                        <img src="/img/close_modal_window.svg" alt="закрытие модального окна" />
+                    <button className="modalClose" data="Закрытия модального окна" onClick={this.modalCLose}>
+                        <img src={CloseModalWindow} alt="закрытие модального окна" />
                     </button>
                     <form className="modalWindow" onSubmit={this.addAssistanteInSideBar}>
                         <label>
