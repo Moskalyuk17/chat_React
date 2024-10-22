@@ -3,6 +3,7 @@ import newChat from "../Assect/addNewAssistante.svg";
 import closeSidebar from "../Assect/close_sidebar.svg";
 import AddAssistante from "./AddAssistante";
 import moreInfo from "../Assect/more_infoForAssistante.svg";
+import AssistantOptions from "./AssistantOption";
 
 class Aside extends React.Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class Aside extends React.Component {
         this.state = {
             assistants: [],
             isHeaderVisible: true,
+            activeAssistant: null, // Добавляем для отслеживания активного ассистента
         };
     }
 
@@ -27,6 +29,13 @@ class Aside extends React.Component {
                 assistants: updatedAssistants,
             };
         });
+    };
+
+    // Метод для переключения активного ассистента
+    toggleAssistantOptions = (index) => {
+        this.setState((prevState) => ({
+            activeAssistant: prevState.activeAssistant === index ? null : index, // Переключение на активного ассистента
+        }));
     };
 
     render() {
@@ -56,9 +65,24 @@ class Aside extends React.Component {
                             {this.state.assistants.map((assistant, index) => (
                                 <li key={index} className="li">
                                     <span className="nameAssistante">{assistant.name}</span>
-                                    <button className="moreInfoButton" onClick={this.openMoreInfo}>
+                                    <button
+                                        className="moreInfoButton"
+                                        onClick={() => this.toggleAssistantOptions(index)} // Вызов метода переключения
+                                    >
                                         <img src={moreInfo} alt="больше информации" />
                                     </button>
+
+                                    <div className="modalEdit">
+                                        {this.state.activeAssistant === index && (
+                                            <AssistantOptions
+                                                onClose={() => this.toggleAssistantOptions(index)}
+                                                onEdit={() => console.log("Изменить")}
+                                                onDelete={() => console.log("Удалить")}
+                                                onShare={() => console.log("Поделиться")}
+                                            />
+                                        )}
+                                    </div>
+
                                 </li>
                             ))}
                         </ul>
