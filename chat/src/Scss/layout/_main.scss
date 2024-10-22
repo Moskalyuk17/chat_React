@@ -14,19 +14,20 @@
             height: 80vh;
             overflow: hidden auto;
             width: 100%;
+            margin-bottom: 30px;
     
             .out {
                 display: flex;
                 flex-direction: column;
-                align-items: end;
-                position: relative;
+                align-items: flex-end;
                 max-width: 50%;
+                width: 100%;
                 border: none;
-                word-break: break-all;            
+                word-break: break-all;
+       
 
                 p {
                     display: block;
-                    width: fit-content;
                     max-width: 100%;
                     padding: 16px;
                     border-radius: 16px;
@@ -35,6 +36,8 @@
                     color: #fff;
                     word-wrap: break-word;
                     white-space: pre-wrap;
+                    overflow-wrap: break-word;
+                    width: 100%;
                 }
             }
         }
@@ -51,14 +54,18 @@
     }
 
     .form_text {
-        position: relative;
-        vertical-align: top;
+        position: absolute; 
+        bottom: 0; 
+        left: 50%; 
+        transform: translateX(-50%); 
         width: 70vw;
+
+
 
         .form-control {
             display: flex;
             align-items: center;
-            width: 100%;
+            width: 100% ;
             border-radius: 50px;
             border: none;
             padding: 16px;

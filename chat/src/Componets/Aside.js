@@ -13,10 +13,20 @@ class Aside extends React.Component {
         };
     }
 
+    componentDidMount() {
+        const savedAssistants = JSON.parse(localStorage.getItem("assistants")) || [];
+        this.setState({ assistants: savedAssistants });
+    }
+
     addAssistante = (assistant) => {
-        this.setState((prevState) => ({
-            assistants: [...prevState.assistants, assistant],
-        }));
+        this.setState((prevState) => {
+            const updatedAssistants = [...prevState.assistants, assistant];
+            localStorage.setItem("assistants", JSON.stringify(updatedAssistants));
+
+            return {
+                assistants: updatedAssistants,
+            };
+        });
     };
 
     render() {
@@ -61,3 +71,4 @@ class Aside extends React.Component {
 }
 
 export default Aside;
+

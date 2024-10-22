@@ -28,7 +28,7 @@ class AddAssistante extends React.Component {
         event.preventDefault();
         const {  name, link, version } = this.state;
 
-        this.props.onAddAssistante({  name, link, version });
+        this.props.onAddAssistante({ name, link, version });
 
         document.querySelector(".modalBackground").style.display = "none";
     };

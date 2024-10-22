@@ -43,7 +43,6 @@ class Main extends React.Component {
                         rows="3" 
                         placeholder="Сообщение ассистенту" 
                         type="search"  
-                        required
                     />
                     <button 
                         className="message_input" 

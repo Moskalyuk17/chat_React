@@ -12,13 +12,16 @@ class App extends React.Component {
     };
   }
 
-  closeAside = () => {
+  closeAside = (event) => {
     this.setState({ isAsideVisible: false });
+    event.preventDefault();
   };
 
 
-  openAside = () => {
+  openAside = (event) => {
     this.setState({ isAsideVisible: true });
+    event.preventDefault();
+
   };
 
   render() {
