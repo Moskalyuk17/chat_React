@@ -55,6 +55,23 @@
   transform: scale(1.1);
 }
 
+.aside .c-btn {
+  position: relative;
+  display: inline-block;
+}
+
+.aside .c-btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.aside .c-btn:before {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
 .aside .li {
   float: left;
   width: 100%;
@@ -67,15 +84,53 @@
   border-radius: 8px;
   align-items: center;
   padding: 10px;
-  background: #2F2F2F;
+  box-shadow: inset 0 0 0 2px transparent;
 }
 
 .aside .li :nth-last-child(1) {
   float: right;
 }
 
-.aside .li:hover {
-  transform: scale(1.02);
+.aside .li:after, .aside .li::before {
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+
+.aside .li::after {
+  top: 0;
+  left: 0;
+  transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in 0.2s;
+}
+
+.aside .li:before {
+  bottom: 0;
+  right: 0;
+  transition: border-color 0s ease-in 0.2s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
+}
+
+.aside .li:hover:after, .aside .li:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.aside .li:hover:before {
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 0.2s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.aside .li:hover:after {
+  border-top-color: #fff;
+  border-right-color: #fff;
+  transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
+}
+
+.aside .li:hover:before {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+  transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
 }
 
 .aside .li .nameAssistante {
@@ -92,7 +147,7 @@
   right: 0;
   width: 16%;
   height: 1.2em;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), #2F2F2F 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #171717 100%);
   pointer-events: none;
 }
 
@@ -100,6 +155,7 @@
   border: none;
   background: none;
   cursor: pointer;
+  z-index: 9;
 }
 
 .container {
@@ -265,6 +321,8 @@ body {
 
 .modalBackground .modalWindow #version {
   display: none;
+  flex-direction: column;
+  background: #EBEBEB;
   width: 100%;
   z-index: 10;
   margin-top: 10px;

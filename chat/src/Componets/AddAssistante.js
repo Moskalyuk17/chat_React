@@ -13,6 +13,10 @@ class AddAssistante extends React.Component {
         };
     }
 
+    openWidowVersion = () => {
+        document.querySelector("#version").style.display = 'flex';
+    }
+
     handleInputChange = (event) => {
         const { name, value } = event.target;
         this.setState({
@@ -31,17 +35,21 @@ class AddAssistante extends React.Component {
         this.props.onAddAssistante({ name, link, version });
 
         document.querySelector(".modalBackground").style.display = "none";
+        document.querySelector("#version").style.display = 'none';
     };
 
     modalCLose = () => {
         document.querySelector(".modalBackground").style.display = "none";
+        document.querySelector("#version").style.display = 'none';
     }
 
     modalBackgroundClose = (event) => {
         const modalBackground = document.querySelector(".modalBackground");
+        const versionSelect = document.querySelector("#version");
 
         if (event.target === modalBackground) {
             modalBackground.style.display = "none";
+            versionSelect.style.display = "none";
         }
     }
 
@@ -74,8 +82,8 @@ class AddAssistante extends React.Component {
                         </label>
                         <label>
                             Версия
-                            <div className="selected">{this.state.version}</div>
-                            <ul id="version">
+                            <div className="selected" onClick={this.openWidowVersion}>{this.state.version}</div>
+                            <ul id="version" >
                                 <li onClick={() => this.handleVersionSelect("4o-mini")}>4o-mini</li>
                                 <li onClick={() => this.handleVersionSelect("4o")}>4o</li>
                             </ul>

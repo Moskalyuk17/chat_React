@@ -63,7 +63,7 @@ class Aside extends React.Component {
                         </div>
                         <ul className="list_chat">
                             {this.state.assistants.map((assistant, index) => (
-                                <li key={index} className="li">
+                                <li key={index} className="li c-btn">
                                     <span className="nameAssistante">{assistant.name}</span>
                                     <button
                                         className="moreInfoButton"
